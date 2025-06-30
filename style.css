@@ -1,0 +1,506 @@
+        :root {
+            --dark-gray: #13111C;
+            --second-gray: #181622;
+
+            --darkGray-border: #13111c;
+            --lightGray-border: #252525;
+
+            --BgPurple: #1E132A;
+            --purple-border: #3d2259;
+
+            --BgBlue: #0B1428;
+            --blue-border: #183367;
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            height: 100vh;
+            color: #f0f1f5;
+        }
+
+        .panel {
+            background-color: var(--dark-gray);
+            width: 50%;
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .opciones {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+
+        /* Panel derecho */
+        .preview {
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .telefono {
+            width: 390px;
+            height: 844px;
+            border: 12px solid #333;
+            border-radius: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tarjeta {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .titulo,
+        .evento,
+        .anfitrion,
+        .hora,
+        .ubicacion,
+        .mensaje,
+        .fecha,
+        .spotify {
+            margin: 4px 0;
+        }
+
+        .titulo {
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .evento {
+            font-size: 1.4rem;
+        }
+
+        .anfitrion {
+            font-size: 1.1rem;
+        }
+
+        .mensaje {
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+        .hora,
+        .ubicacion,
+        .fecha,
+        .spotify {
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        .foto-central {
+            width: 80%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin: 10px 0;
+        }
+
+        .galeria {
+            display: flex;
+            gap: 6px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .foto-galeria {
+            width: 80px;
+            height: 80px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+        }
+
+        .rsvp {
+            margin-top: auto;
+            background: #ffffff88;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: none;
+        }
+
+
+        /* caordeon */
+
+
+        details {
+            background-color: var(--BgBlue);
+            border: 2px solid var(--blue-border);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            list-style: none;
+            padding: 20px;
+        }
+
+        details[open] {
+            background-color: var(--BgPurple);
+            border: 2px solid var(--purple-border);
+        }
+
+
+
+
+        /* Controles */
+
+        .control .element {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sub {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            border: 2px solid var(--lightGray-border);
+            border-radius: 24px;
+            padding: 10px 10px;
+
+        }
+
+        .control label {
+            margin-top: 10px;
+            font-size: 1.1rem;
+
+            font-family: Poppins-Bold, "Lora", "Roboto Mono", sans-serif;
+            line-height: 1.2;
+            font-weight: 500;
+            letter-spacing: -0.01rem;
+        }
+        
+
+        .control input, select {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            padding: 5px;
+            font-family: Poppins-Bold, "Lora", "Roboto Mono", sans-serif;
+            line-height: 1.2;
+            font-weight: 500;
+            letter-spacing: -0.01rem;
+        }
+
+        .inputLarge{
+            flex: 2 !important;
+        }
+
+          .control textarea {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            padding: 5px;
+            font-family: Poppins-Bold, "Lora", "Roboto Mono", sans-serif;
+            line-height: 1.2;
+            font-weight: 500;
+            letter-spacing: -0.01rem;  
+            width: 90%;
+        }
+
+        .anchura{
+            width: 90%;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @keyframes cube {
+            from {
+                transform: scale(0) rotate(0deg) translate(-50%, -50%);
+                opacity: 1;
+            }
+
+            to {
+                transform: scale(20) rotate(960deg) translate(-50%, -50%);
+                opacity: 0;
+            }
+        }
+
+        .background {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            background: #f0f1f5;
+            overflow: hidden;
+            z-index: -999;
+        }
+
+        .background li {
+            position: absolute;
+            top: 80vh;
+            left: 45vw;
+            width: 10px;
+            height: 10px;
+            border: solid 1px #0039ad;
+            color: transparent;
+            transform-origin: top left;
+            transform: scale(0) rotate(0deg) translate(-50%, -50%);
+            animation: cube 7s ease-in forwards infinite;
+        }
+
+        undefined .background li:nth-child(0) {
+            animation-delay: 0s;
+            left: 60vw;
+            top: 57vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(1) {
+            animation-delay: 2s;
+            left: 12vw;
+            top: 30vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(2) {
+            animation-delay: 4s;
+            left: 39vw;
+            top: 87vh;
+        }
+
+        .background li:nth-child(3) {
+            animation-delay: 6s;
+            left: 73vw;
+            top: 80vh;
+        }
+
+        .background li:nth-child(4) {
+            animation-delay: 8s;
+            left: 29vw;
+            top: 3vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(5) {
+            animation-delay: 10s;
+            left: 41vw;
+            top: 16vh;
+        }
+
+        .background li:nth-child(6) {
+            animation-delay: 12s;
+            left: 17vw;
+            top: 90vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(7) {
+            animation-delay: 14s;
+            left: 86vw;
+            top: 75vh;
+        }
+
+        .background li:nth-child(8) {
+            animation-delay: 16s;
+            left: 55vw;
+            top: 64vh;
+        }
+
+        .background li:nth-child(9) {
+            animation-delay: 18s;
+            left: 98vw;
+            top: 7vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(10) {
+            animation-delay: 20s;
+            left: 57vw;
+            top: 51vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(11) {
+            animation-delay: 22s;
+            left: 25vw;
+            top: 38vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(12) {
+            animation-delay: 24s;
+            left: 34vw;
+            top: 92vh;
+        }
+
+        .background li:nth-child(13) {
+            animation-delay: 26s;
+            left: 21vw;
+            top: 10vh;
+        }
+
+        .background li:nth-child(14) {
+            animation-delay: 28s;
+            left: 71vw;
+            top: 61vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(15) {
+            animation-delay: 30s;
+            left: 94vw;
+            top: 15vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(16) {
+            animation-delay: 32s;
+            left: 2vw;
+            top: 70vh;
+        }
+
+        .background li:nth-child(17) {
+            animation-delay: 34s;
+            left: 90vw;
+            top: 27vh;
+        }
+
+        .background li:nth-child(18) {
+            animation-delay: 36s;
+            left: 78vw;
+            top: 42vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(19) {
+            animation-delay: 38s;
+            left: 50vw;
+            top: 98vh;
+            border-color: #0046d4;
+        }
+
+        .background li:nth-child(20) {
+            animation-delay: 40s;
+            left: 11vw;
+            top: 35vh;
+        }
+
+        .background li:nth-child(21) {
+            animation-delay: 42s;
+            left: 6vw;
+            top: 45vh;
+        }
+
+        .background li:nth-child(22) {
+            animation-delay: 44s;
+            left: 65vw;
+            top: 23vh;
+        }
+
+        .background li:nth-child(23) {
+            animation-delay: 46s;
+            left: 80vw;
+            top: 55vh;
+        }
+
+        .background li:nth-child(24) {
+            animation-delay: 48s;
+            left: 45vw;
+            top: 77vh;
+        }

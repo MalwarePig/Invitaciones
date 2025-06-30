@@ -1,0 +1,33 @@
+FONDO
+    Color 
+        solido
+        degradado
+            angulo
+    imagen 
+        Estilo
+        mascara
+
+Imagen Central
+    Estilo
+        mascara
+        degradado
+    Posicion
+
+Titulo
+    Fuente
+    Tamaño
+    Posicion
+    Espaciado
+
+Mensaje
+    Fuente
+    Tamaño
+    Posicion
+    Espaciado
+
+Galeria
+    Tipo de Galeria
+
+
+
+    

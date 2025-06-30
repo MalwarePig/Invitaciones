@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Creador de Invitaciones</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+</head>
+
+<body>
+
+    <!-- Panel izquierdo -->
+    <div class="panel opciones">
+        <h2>Personaliza tu invitación</h2>
+
+        <details>
+            <summary>Sección 1: Fondo</summary>
+            <div class="control">
+                <div class="element">
+                    <label for="colorFondo">Color de Fondo</label>
+                    <input type="color" id="colorFondo" value="#6a1b9a">
+                </div>
+
+
+                <div class="sub">
+                    <div class="element">
+                        <label for="imagenFondo">Imagen de Fondo</label>
+                        <select id="imagenFondo">
+                            <option value="">(Sin imagen)</option>
+                            <option value="Contain">Montaña</option>
+                            <option value="Ajustar">Flores</option>
+                            <option value="https://picsum.photos/id/1025/600/400">Perro</option>
+                        </select>
+                    </div>
+
+
+                    <div class="element">
+                        <label for="bgEstilo">Estilo</label>
+                        <select id="bgEstilo">
+                            <option value="fill" selected>por defecto</option>
+                            <option value="contain">manteniendo proporción</option>
+                            <option value="cover">Escalar la imagen</option>
+                            <option value="scale-down">Automático</option>
+                        </select>
+                    </div>
+
+                    <div class="element">
+                        <label for="bgSize">Redondear bordes</label>
+                        <input type="range" name="bgSize" id="bgSize">
+                    </div>
+
+                    <div class="element">
+                        <label for="bgGray">Escala de grises</label>
+                        <input type="checkbox" name="bgGray" id="bgGray">
+                    </div>
+
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Seccion#: Imagen principal</summary>
+
+            <div class="control">
+
+                <div class="sub">
+                    <div class="element">
+                        <label for="fotoCentral">Foto central</label>
+                        <input type="file" id="fotoCentral" placeholder="Pega una imagen destacada">
+                    </div>
+                    <div class="element">
+                        <label for="imgPrimEstilo">Estilo</label>
+                        <select id="imgPrimEstilo">
+                            <option value="fill">por defecto</option>
+                            <option value="contain">manteniendo proporción</option>
+                            <option value="cover">Escalar la imagen</option>
+                            <option value="scale-down">Automático</option>
+                        </select>
+                    </div>
+
+                    <div class="element">
+                        <label for="imgPrimSize">Tamaño</label>
+                        <input type="range" name="imgPrimSize" id="imgPrimSize">
+                    </div>
+
+                    <div class="element">
+                        <label for="imgPrimborder">Redondear bordes</label>
+                        <input type="range" name="imgPrimborder" id="imgPrimborder">
+                    </div>
+
+                    <div class="element">
+                        <label for="imgPrimGradient">Desvanecido</label>
+                        <input type="range" name="imgPrimGradient" id="imgPrimGradient">
+                    </div>
+
+                    <div class="element">
+                        <label for="imgPrimGray">Escala de grises</label>
+                        <input type="checkbox" name="imgPrimGray" id="imgPrimGray">
+                    </div>
+
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Sección 2: Título</summary>
+            <div class="control">
+                <div class="sub">
+                    <div class="element">
+                        <label for="titulo">Título</label>
+                        <input type="text" id="titulo" placeholder="Ej: ¡Estás invitado!">
+                    </div>
+
+                    <div class="element">
+                        <label for="TituloSize">Tamaño</label>
+                        <input type="range" name="TituloSize" id="TituloSize">
+                    </div>
+
+                    <div class="element">
+                        <label for="TituloHeight">Altura</label>
+                        <input type="range" name="TituloHeight" id="TituloHeight">
+                    </div>
+
+                    <div class="element">
+                        <label for="fontTitulo">Tipografia</label>
+                        <select id="fontTitulo">
+                            <option value="fill">por defecto</option>
+                            <option value="contain">manteniendo proporción</option>
+                            <option value="cover">Escalar la imagen</option>
+                            <option value="scale-down">Automático</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sub">
+                    <div class="element">
+                        <label for="nombreEvento">Nombre del Evento</label>
+                        <input type="text" id="nombreEvento" placeholder="Ej: Fiesta de cumpleaños">
+                    </div>
+
+                    <div class="element">
+                        <label for="EventoSize">Tamaño</label>
+                        <input type="range" name="EventoSize" id="EventoSize">
+                    </div>
+
+                    <div class="element">
+                        <label for="EventoHeight">Altura</label>
+                        <input type="range" name="EventoHeight" id="EventoHeight">
+                    </div>
+
+                    <div class="element">
+                        <label for="fontEvento">Tipografia</label>
+                        <select id="fontEvento">
+                            <option value="fill">por defecto</option>
+                            <option value="contain">manteniendo proporción</option>
+                            <option value="cover">Escalar la imagen</option>
+                            <option value="scale-down">Automático</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sub">
+                    <div class="element">
+                        <label for="anfitrion">Anfitrión</label>
+                        <input type="text" id="anfitrion" placeholder="Ej: Familia García">
+                    </div>
+
+                    <div class="element">
+                        <label for="anfitrionSize">Tamaño</label>
+                        <input type="range" name="anfitrionSize" id="anfitrionSize">
+                    </div>
+
+                    <div class="element">
+                        <label for="anfitrionHeight">Altura</label>
+                        <input type="range" name="anfitrionHeight" id="anfitrionHeight">
+                    </div>
+
+                    <div class="element">
+                        <label for="fontAnfitrion">Tipografia</label>
+                        <select id="fontAnfitrion">
+                            <option value="fill">por defecto</option>
+                            <option value="contain">manteniendo proporción</option>
+                            <option value="cover">Escalar la imagen</option>
+                            <option value="scale-down">Automático</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Sección 3: Datos</summary>
+            <div class="control">
+                <div class="sub">
+                    <div class="element">
+                        <label for="fecha">Fecha del evento</label>
+                        <input type="date" id="fecha">
+                    </div>
+
+                    <div class="element">
+                        <label for="hora">Hora del evento</label>
+                        <input type="time" id="hora">
+                    </div>
+
+                    <div class="element inputLarge">
+                        <label for="ubicacion">Ubicación</label>
+                        <input type="text" id="ubicacion" placeholder="Ej: Salón Fiesta, CDMX">
+                    </div>
+
+                    <div class="element">
+                        <label for="dataSize">Tamaño</label>
+                        <input type="range" name="dataSize" id="dataSize">
+                    </div>
+
+                    <div class="element">
+                        <label for="dataHeight">Altura</label>
+                        <input type="range" name="dataHeight" id="dataHeight">
+                    </div>
+
+                    <div class="element">
+                        <label for="dataFont">Tipografia</label>
+                        <select id="dataFont">
+                            <option value="fill">por defecto</option>
+                            <option value="contain">manteniendo proporción</option>
+                            <option value="cover">Escalar la imagen</option>
+                            <option value="scale-down">Automático</option>
+                        </select>
+                    </div>
+ 
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Sección 4: Mensaje</summary>
+            <div class="control">
+                <div class="sub">
+                    <div class="element anchura">
+                        <label for="mensaje">Mensaje personalizado</label>
+                        <textarea id="mensaje" rows="3" placeholder="¡Te esperamos con mucha alegría!"></textarea>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Sección 5: Galería</summary>
+            <div class="control">
+                <div class="sub">
+                    <div class="element">
+                        <label for="foto1">Foto 1 (URL)</label>
+                        <input type="text" id="foto1" placeholder="URL foto 1">
+                    </div>
+
+                    <div class="element">
+                        <label for="foto2">Foto 2 (URL)</label>
+                        <input type="text" id="foto2" placeholder="URL foto 2">
+                    </div>
+
+                    <div class="element">
+                        <label for="foto3">Foto 3 (URL)</label>
+                        <input type="text" id="foto3" placeholder="URL foto 3">
+                    </div>
+
+                    <div class="element">
+                        <label for="foto4">Foto 4 (URL)</label>
+                        <input type="text" id="foto4" placeholder="URL foto 4">
+                    </div>
+
+                    <div class="element">
+                        <label>
+                            <input type="checkbox" id="mostrarRSVP">
+                            Mostrar botón de confirmación (RSVP)
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+
+    </div>
+
+    <!-- Panel derecho -->
+    <div class="panel preview">
+        <div class="telefono">
+            <div id="tarjeta" class="tarjeta">
+                <div id="vistaTitulo" class="titulo">Aquí va tu invitación</div>
+                <div id="vistaEvento" class="evento"></div>
+                <div id="vistaAnfitrion" class="anfitrion"></div>
+                <div id="vistaMensaje" class="mensaje"></div>
+                <div id="vistaFotoCentral" class="foto-central"></div>
+
+                <div class="galeria">
+                    <div id="galeria1" class="foto-galeria"></div>
+                    <div id="galeria2" class="foto-galeria"></div>
+                    <div id="galeria3" class="foto-galeria"></div>
+                    <div id="galeria4" class="foto-galeria"></div>
+                </div>
+
+                <div id="vistaFecha" class="fecha"></div>
+                <div id="vistaHora" class="hora"></div>
+                <div id="vistaUbicacion" class="ubicacion"></div>
+                <div id="vistaSpotify" class="spotify"></div>
+
+                <div id="rsvpBtn" class="rsvp">Confirmar Asistencia</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="background">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+</body>
+
+</html>
