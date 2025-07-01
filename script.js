@@ -1,246 +1,132 @@
 document.addEventListener("DOMContentLoaded", () => {
     const tarjeta = document.getElementById("tarjeta");
 
-    const campos = {
-        titulo: ["titulo", "vistaTitulo"],
-        nombreEvento: ["nombreEvento", "vistaEvento"],
-        anfitrion: ["anfitrion", "vistaAnfitrion"],
-        mensaje: ["mensaje", "vistaMensaje"],
-        fecha: ["fecha", "vistaFecha", val => val ? ` ${val}` : ""],
-        hora: ["hora", "vistaHora", val => val ? ` ${val}` : ""],
-        ubicacion: ["ubicacion", "vistaUbicacion", val => val ? ` ${val}` : ""],
-       /*  spotify: ["spotify", "vistaSpotify", val => val ? ` ${val}` : ""], */
+    function obtenerConfig() {
+        return {
+            fondo: {
+                color: document.getElementById("colorFondo").value,
+                imagen: document.getElementById('imagenFondo').value,
+                estilo: document.getElementById('bgEstilo').value,
+                RepetirBG: document.getElementById('RepetirBG').checked,
+                escalaGrises: document.getElementById('bgGray').checked,
+                bordes: document.getElementById('bgSize').value, 
+            },
+            imagenPrincipal: {
+                archivo: document.getElementById('fotoCentral').value,
+                estilo: document.getElementById('imgPrimEstilo').value,
+                tamano: document.getElementById('imgPrimSize').value,
+                bordes: document.getElementById('imgPrimborder').value,
+                desvanecido: document.getElementById('imgPrimGradient').value,
+                escalaGrises: document.getElementById('imgPrimGray').checked
+            },
+            titulo: {
+                texto: document.getElementById('titulo').value,
+                tamano: document.getElementById('TituloSize').value,
+                altura: document.getElementById('TituloHeight').value,
+                fuente: document.getElementById('fontTitulo').value
+            },
+            evento: {
+                nombre: document.getElementById('nombreEvento').value,
+                tamano: document.getElementById('EventoSize').value,
+                altura: document.getElementById('EventoHeight').value,
+                fuente: document.getElementById('fontEvento').value
+            },
+            anfitrion: {
+                nombre: document.getElementById('anfitrion').value,
+                tamano: document.getElementById('anfitrionSize').value,
+                altura: document.getElementById('anfitrionHeight').value,
+                fuente: document.getElementById('fontAnfitrion').value
+            },
+            datos: {
+                fecha: document.getElementById('fecha').value,
+                fechaTamano: document.getElementById('fechaSize').value,
+                fechaAltura: document.getElementById('fechaHeight').value,
+                fechaFuente: document.getElementById('fechaFont').value,
+                hora: document.getElementById('hora').value,
+                horaTamano: document.getElementById('horaSize').value,
+                horaAltura: document.getElementById('horaHeight').value,
+                horaFuente: document.getElementById('horaFont').value,
+                ubicacion: document.getElementById('ubicacion').value,
+                ubicacionTamano: document.getElementById('ubicacionSize').value,
+                ubicacionAltura: document.getElementById('ubicacionHeight').value,
+                ubicacionFuente: document.getElementById('ubicacionFont').value
+            },
+            mensaje: document.getElementById('mensaje').value,
+            galeria: {
+                foto1: document.getElementById('foto1').value,
+                foto2: document.getElementById('foto2').value,
+                foto3: document.getElementById('foto3').value,
+                foto4: document.getElementById('foto4').value
+            }
+        };
+    }
+
+    const actualizarVista = () => {
+        const config = obtenerConfig();
+
+        // Fondo
+        tarjeta.style.backgroundColor = config.fondo.color;
+        tarjeta.style.backgroundImage = config.fondo.imagen ? `url(${config.fondo.imagen})` : "none";
+        tarjeta.style.backgroundSize = config.fondo.estilo;
+        tarjeta.style.backgroundRepeat = config.fondo.RepetirBG ? "repeat" : "none";
+        tarjeta.style.filter = config.fondo.escalaGrises ? "grayscale(1)" : "none";
+
+        // Foto central
+        const vistaFoto = document.getElementById("vistaFotoCentral");
+        vistaFoto.style.backgroundImage = config.imagenPrincipal.archivo ? `url(${config.imagenPrincipal.archivo})` : "none";
+        vistaFoto.style.backgroundSize = config.imagenPrincipal.estilo;
+        vistaFoto.style.filter = config.imagenPrincipal.escalaGrises ? "grayscale(1)" : "none";
+        vistaFoto.style.borderRadius = config.imagenPrincipal.bordes + "%";
+        vistaFoto.style.opacity = 1 - config.imagenPrincipal.desvanecido / 100;
+        vistaFoto.style.scale = config.imagenPrincipal.tamano / 50;
+
+        // Textos
+        document.getElementById("vistaTitulo").textContent = config.titulo.texto;
+        document.getElementById("vistaTitulo").style.fontSize = config.titulo.tamano + "px";
+        document.getElementById("vistaTitulo").style.lineHeight = config.titulo.altura + "px";
+
+        document.getElementById("vistaEvento").textContent = config.evento.nombre;
+        document.getElementById("vistaEvento").style.fontSize = config.evento.tamano + "px";
+        document.getElementById("vistaEvento").style.lineHeight = config.evento.altura + "px";
+
+        document.getElementById("vistaAnfitrion").textContent = config.anfitrion.nombre;
+        document.getElementById("vistaAnfitrion").style.fontSize = config.anfitrion.tamano + "px";
+        document.getElementById("vistaAnfitrion").style.lineHeight = config.anfitrion.altura + "px";
+
+        document.getElementById("vistaMensaje").textContent = config.mensaje;
+
+        document.getElementById("vistaFecha").textContent = config.datos.fecha;
+        document.getElementById("vistaFecha").style.fontSize = config.datos.fechaTamano + "px";
+        document.getElementById("vistaFecha").style.lineHeight = config.datos.fechaAltura + "px";
+
+        document.getElementById("vistaHora").textContent = config.datos.hora;
+        document.getElementById("vistaHora").style.fontSize = config.datos.horaTamano + "px";
+        document.getElementById("vistaHora").style.lineHeight = config.datos.horaAltura + "px";
+
+        document.getElementById("vistaUbicacion").textContent = config.datos.ubicacion;
+        document.getElementById("vistaUbicacion").style.fontSize = config.datos.ubicacionTamano + "px";
+        document.getElementById("vistaUbicacion").style.lineHeight = config.datos.ubicacionAltura + "px";
+
+        // Galería
+        ["foto1", "foto2", "foto3", "foto4"].forEach((id, i) => {
+            const gal = document.getElementById(`galeria${i + 1}`);
+            gal.style.backgroundImage = config.galeria[id] ? `url(${config.galeria[id]})` : "none";
+        });
     };
 
-   /*  📅🕒📍🎵 */
-    for (const key in campos) {
-        const [inputId, viewId, formatFn] = campos[key];
-        const input = document.getElementById(inputId);
-        const view = document.getElementById(viewId);
-        input.addEventListener("input", () => {
-            view.textContent = formatFn ? formatFn(input.value) : input.value;
-        });
-    }
-
-    // Color y fondo
-    const colorInput = document.getElementById("colorFondo");
-    colorInput.addEventListener("input", () => {
-        tarjeta.style.backgroundColor = colorInput.value;
+    // Escuchar todos los inputs para actualizar en tiempo real
+    document.querySelectorAll("input, select, textarea").forEach(input => {
+        input.addEventListener("input", actualizarVista);
+        input.addEventListener("change", actualizarVista);
     });
 
-    const imagenSelect = document.getElementById("imagenFondo");
-    imagenSelect.addEventListener("change", () => {
-        tarjeta.style.backgroundImage = imagenSelect.value ? `url(${imagenSelect.value})` : "none";
+    // Botón mostrar configuración
+    const Shower = document.getElementById("Shower");
+    Shower.addEventListener("click", () => {
+        const config = obtenerConfig();
+        console.table(config);
+        console.log(JSON.stringify(config, null, 2));
     });
 
-    // Foto central
-    const fotoCentralInput = document.getElementById("fotoCentral");
-    const vistaFotoCentral = document.getElementById("vistaFotoCentral");
-    fotoCentralInput.addEventListener("input", () => {
-        vistaFotoCentral.style.backgroundImage = fotoCentralInput.value ? `url(${fotoCentralInput.value})` : "none";
-    });
-
-    // Galería
-    const fotos = ["foto1", "foto2", "foto3", "foto4"];
-    fotos.forEach((id, i) => {
-        const input = document.getElementById(id);
-        const galeria = document.getElementById(`galeria${i + 1}`);
-        input.addEventListener("input", () => {
-            galeria.style.backgroundImage = input.value ? `url(${input.value})` : "none";
-        });
-    });
-
-    // RSVP
-    const rsvpCheckbox = document.getElementById("mostrarRSVP");
-    const rsvpBtn = document.getElementById("rsvpBtn");
-    rsvpCheckbox.addEventListener("change", () => {
-        rsvpBtn.style.display = rsvpCheckbox.checked ? "inline-block" : "none";
-    });
-
-    // Inicializar color
-    tarjeta.style.backgroundColor = colorInput.value;
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-/* ---- particles.js config ---- */
-
-particlesJS("particle-container", {
-  "particles": {
-    "number": {
-      "value": 80,
-      "density": {
-        "enable": true,
-        "value_area": 800
-      }
-    },
-    "color": {
-      "value": "random"
-    },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "polygon": {
-        "nb_sides": 5
-      },
-      "image": {
-        "src": "img/github.svg",
-        "width": 100,
-        "height": 100
-      }
-    },
-    "opacity": {
-      "value": 0.5,
-      "random": false,
-      "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0.1,
-        "sync": false
-      }
-    },
-    "size": {
-      "value": 3,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": false,
-      "distance": 150,
-      "color": "#ffffff",
-      "opacity": 0.4,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 1,
-      "direction": "none",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
-      }
-    }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": false,
-        "mode": "repulse"
-      },
-      "onclick": {
-        "enable": false,
-        "mode": "push"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 1
-        }
-      },
-      "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 200,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
-      }
-    }
-  },
-  "retina_detect": true
+    actualizarVista();
 });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

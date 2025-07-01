@@ -4,15 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Creador de Invitaciones</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Comic+Relief:wght@400;700&family=Delius+Swash+Caps&family=Kapakana:wght@300..400&family=Lora:ital,wght@0,400..700;1,400..700&family=Meow+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Pinyon+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Send+Flowers&family=Twinkle+Star&display=swap"
+        rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    <script src="./Load.js"></script>
 </head>
 
 <body>
-
     <!-- Panel izquierdo -->
     <div class="panel opciones">
-        <h2>Personaliza tu invitación</h2>
+        <h2>Personaliza tu invitación aquí</h2>
 
         <details>
             <summary>Sección 1: Fondo</summary>
@@ -22,14 +45,17 @@
                     <input type="color" id="colorFondo" value="#6a1b9a">
                 </div>
 
-
                 <div class="sub">
                     <div class="element">
                         <label for="imagenFondo">Imagen de Fondo</label>
                         <select id="imagenFondo">
                             <option value="">(Sin imagen)</option>
-                            <option value="Contain">Montaña</option>
-                            <option value="Ajustar">Flores</option>
+                            <option value="./public/img/confeti.jpg">confeti</option>
+                            <option value="./public/img/fondo1.jpg">fondo 1</option>
+                            <option value="./public/img/fondo2.jpg">fondo 2</option>
+                            <option value="./public/img/fondo3.jpg">fondo 3</option>
+                            <option value="./public/img/niña.jpg">niña</option>
+                            <option value="./public/img/niño.jpg">niño</option>
                             <option value="https://picsum.photos/id/1025/600/400">Perro</option>
                         </select>
                     </div>
@@ -38,20 +64,19 @@
                     <div class="element">
                         <label for="bgEstilo">Estilo</label>
                         <select id="bgEstilo">
-                            <option value="fill" selected>por defecto</option>
-                            <option value="contain">manteniendo proporción</option>
-                            <option value="cover">Escalar la imagen</option>
-                            <option value="scale-down">Automático</option>
+                            <option value="cover" selected>Mantener proporción</option>
+                            <option value="contain ">Contener </option>
+                            <option value="auto ">Automático </option>
                         </select>
                     </div>
 
                     <div class="element">
-                        <label for="bgSize">Redondear bordes</label>
-                        <input type="range" name="bgSize" id="bgSize">
+                        <label for="RepetirBG">Repetir</label>
+                        <input type="checkbox" name="RepetirBG" id="RepetirBG">
                     </div>
 
                     <div class="element">
-                        <label for="bgGray">Escala de grises</label>
+                        <label for="bgGray">Grises</label>
                         <input type="checkbox" name="bgGray" id="bgGray">
                     </div>
 
@@ -65,10 +90,18 @@
             <div class="control">
 
                 <div class="sub">
+
                     <div class="element">
-                        <label for="fotoCentral">Foto central</label>
-                        <input type="file" id="fotoCentral" placeholder="Pega una imagen destacada">
+                        <label for="fotoCentral">Imagen principal</label>
+                        <select id="fotoCentral">
+                            <option value="">(Sin imagen)</option>
+                            <option value="./public/img/confeti.jpg">confeti</option>
+                            <option value="./public/img/niña.jpg">niña</option>
+                            <option value="./public/img/niño.jpg">niño</option>
+                            <option value="https://picsum.photos/id/1025/600/400">Perro</option>
+                        </select>
                     </div>
+
                     <div class="element">
                         <label for="imgPrimEstilo">Estilo</label>
                         <select id="imgPrimEstilo">
@@ -81,17 +114,28 @@
 
                     <div class="element">
                         <label for="imgPrimSize">Tamaño</label>
-                        <input type="range" name="imgPrimSize" id="imgPrimSize">
+                        <input type="range" name="imgPrimSize" id="imgPrimSize" min="0" max="100" value="100">
                     </div>
 
                     <div class="element">
-                        <label for="imgPrimborder">Redondear bordes</label>
-                        <input type="range" name="imgPrimborder" id="imgPrimborder">
+                        <label for="imgPrimborder">Bordes</label>
+                        <input type="range" name="imgPrimborder" id="imgPrimborder" min="0" max="100" value="0">
                     </div>
 
                     <div class="element">
                         <label for="imgPrimGradient">Desvanecido</label>
-                        <input type="range" name="imgPrimGradient" id="imgPrimGradient">
+                        <input type="range" name="imgPrimGradient" id="imgPrimGradient" min="0" max="100" value="0">
+                    </div>
+
+                    <div class="element">
+                        <label for="imgPrimTransparencia">Transparencia</label>
+                        <input type="range" name="imgPrimTransparencia" id="imgPrimTransparencia" min="0" max="100"
+                            value="0">
+                    </div>
+
+                    <div class="element">
+                        <label for="imgPrimPosicion">Posicion</label>
+                        <input type="range" name="imgPrimPosicion" id="imgPrimPosicion" min="-100" max="300" value="0">
                     </div>
 
                     <div class="element">
@@ -106,64 +150,11 @@
         <details>
             <summary>Sección 2: Título</summary>
             <div class="control">
-                <div class="sub">
-                    <div class="element">
-                        <label for="titulo">Título</label>
-                        <input type="text" id="titulo" placeholder="Ej: ¡Estás invitado!">
-                    </div>
-
-                    <div class="element">
-                        <label for="TituloSize">Tamaño</label>
-                        <input type="range" name="TituloSize" id="TituloSize">
-                    </div>
-
-                    <div class="element">
-                        <label for="TituloHeight">Altura</label>
-                        <input type="range" name="TituloHeight" id="TituloHeight">
-                    </div>
-
-                    <div class="element">
-                        <label for="fontTitulo">Tipografia</label>
-                        <select id="fontTitulo">
-                            <option value="fill">por defecto</option>
-                            <option value="contain">manteniendo proporción</option>
-                            <option value="cover">Escalar la imagen</option>
-                            <option value="scale-down">Automático</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="sub">
-                    <div class="element">
-                        <label for="nombreEvento">Nombre del Evento</label>
-                        <input type="text" id="nombreEvento" placeholder="Ej: Fiesta de cumpleaños">
-                    </div>
-
-                    <div class="element">
-                        <label for="EventoSize">Tamaño</label>
-                        <input type="range" name="EventoSize" id="EventoSize">
-                    </div>
-
-                    <div class="element">
-                        <label for="EventoHeight">Altura</label>
-                        <input type="range" name="EventoHeight" id="EventoHeight">
-                    </div>
-
-                    <div class="element">
-                        <label for="fontEvento">Tipografia</label>
-                        <select id="fontEvento">
-                            <option value="fill">por defecto</option>
-                            <option value="contain">manteniendo proporción</option>
-                            <option value="cover">Escalar la imagen</option>
-                            <option value="scale-down">Automático</option>
-                        </select>
-                    </div>
-                </div>
 
                 <div class="sub">
                     <div class="element">
                         <label for="anfitrion">Anfitrión</label>
-                        <input type="text" id="anfitrion" placeholder="Ej: Familia García">
+                        <input type="text" id="anfitrion" placeholder="Ej: Familia García" value="Familia García">
                     </div>
 
                     <div class="element">
@@ -173,19 +164,118 @@
 
                     <div class="element">
                         <label for="anfitrionHeight">Altura</label>
-                        <input type="range" name="anfitrionHeight" id="anfitrionHeight">
+                        <input type="range" name="anfitrionHeight" id="anfitrionHeight" min="0" max="700" value="300">
                     </div>
 
                     <div class="element">
                         <label for="fontAnfitrion">Tipografia</label>
                         <select id="fontAnfitrion">
-                            <option value="fill">por defecto</option>
-                            <option value="contain">manteniendo proporción</option>
-                            <option value="cover">Escalar la imagen</option>
-                            <option value="scale-down">Automático</option>
+                            <option value="Allura">Allura</option>
+                            <option value="Comic Relief">Comic Relief</option>
+                            <option value="Delius Swash Caps">Delius Swash Caps</option>
+                            <option value="Kapakana">Kapakana</option>
+                            <option value="Lora">Lora</option>
+                            <option value="Meow Script">Meow Script</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Pacifico">Pacifico</option>
+                            <option value="Pinyon Script">Pinyon Script</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Roboto Mono">Roboto Mono</option>
+                            <option value="Send Flowers">Send Flowers</option>
+                            <option value="Twinkle Star">Twinkle Star</option>
                         </select>
                     </div>
+
+                    <div class="element">
+                        <label for="colorAnfitrion">Color</label>
+                        <input type="color" id="colorAnfitrion" value="#000">
+                    </div>
                 </div>
+
+                <div class="sub">
+                    <div class="element">
+                        <label for="nombreEvento">Nombre del Evento</label>
+                        <input type="text" id="nombreEvento" placeholder="Ej: Fiesta de cumpleaños"
+                            value="Fiesta de cumpleaños">
+                    </div>
+
+                    <div class="element">
+                        <label for="EventoSize">Tamaño</label>
+                        <input type="range" name="EventoSize" id="EventoSize" min="0" max="100" value="30">
+                    </div>
+
+                    <div class="element">
+                        <label for="EventoHeight">Altura</label>
+                        <input type="range" name="EventoHeight" id="EventoHeight" min="-100" max="700" value="380">
+                    </div>
+
+                    <div class="element">
+                        <label for="fontEvento">Tipografia</label>
+                        <select id="fontEvento">
+                            <option value="Allura">Allura</option>
+                            <option value="Comic Relief">Comic Relief</option>
+                            <option value="Delius Swash Caps">Delius Swash Caps</option>
+                            <option value="Kapakana">Kapakana</option>
+                            <option value="Lora">Lora</option>
+                            <option value="Meow Script">Meow Script</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Pacifico">Pacifico</option>
+                            <option value="Pinyon Script">Pinyon Script</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Roboto Mono">Roboto Mono</option>
+                            <option value="Send Flowers">Send Flowers</option>
+                            <option value="Twinkle Star">Twinkle Star</option>
+                        </select>
+                    </div>
+
+                    <div class="element">
+                        <label for="colorEvento">Color</label>
+                        <input type="color" id="colorEvento" value="#000">
+                    </div>
+                </div>
+
+                <div class="sub">
+                    <div class="element">
+                        <label for="titulo">Título</label>
+                        <input type="text" id="titulo" placeholder="Ej: ¡Estás invitado!" value="¡Estás invitado!">
+                    </div>
+
+                    <div class="element">
+                        <label for="TituloSize">Tamaño</label>
+                        <input type="range" name="TituloSize" id="TituloSize" min="0" max="100" value="40">
+                    </div>
+
+                    <div class="element">
+                        <label for="TituloHeight">Altura</label>
+                        <input type="range" name="TituloHeight" id="TituloHeight" min="0" max="700" value="450">
+                    </div>
+
+                    <div class="element">
+                        <label for="fontTitulo">Tipografia</label>
+                        <select id="fontTitulo">
+                            <option value="Allura">Allura</option>
+                            <option value="Comic Relief">Comic Relief</option>
+                            <option value="Delius Swash Caps">Delius Swash Caps</option>
+                            <option value="Kapakana">Kapakana</option>
+                            <option value="Lora">Lora</option>
+                            <option value="Meow Script">Meow Script</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Pacifico">Pacifico</option>
+                            <option value="Pinyon Script">Pinyon Script</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Roboto Mono">Roboto Mono</option>
+                            <option value="Send Flowers">Send Flowers</option>
+                            <option value="Twinkle Star">Twinkle Star</option>
+                        </select>
+                    </div>
+
+                    <div class="element">
+                        <label for="colorTitulo">Color</label>
+                        <input type="color" id="colorTitulo" value="#000">
+                    </div>
+                </div>
+
+
             </div>
         </details>
 
@@ -199,35 +289,118 @@
                     </div>
 
                     <div class="element">
+                        <label for="fechaSize">Tamaño</label>
+                        <input type="range" name="fechaSize" id="fechaSize" min="0" max="100" value="20">
+                    </div>
+
+                    <div class="element">
+                        <label for="fechaHeight">Altura</label>
+                        <input type="range" name="fechaHeight" id="fechaHeight" min="0" max="700" value="550">
+                    </div>
+
+                    <div class="element">
+                        <label for="fechaFont">Tipografia</label>
+                        <select id="fechaFont">
+                            <option value="Allura">Allura</option>
+                            <option value="Comic Relief">Comic Relief</option>
+                            <option value="Delius Swash Caps">Delius Swash Caps</option>
+                            <option value="Kapakana">Kapakana</option>
+                            <option value="Lora">Lora</option>
+                            <option value="Meow Script">Meow Script</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Pacifico">Pacifico</option>
+                            <option value="Pinyon Script">Pinyon Script</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Roboto Mono">Roboto Mono</option>
+                            <option value="Send Flowers">Send Flowers</option>
+                            <option value="Twinkle Star">Twinkle Star</option>
+                        </select>
+                    </div>
+
+                    <div class="element">
+                        <label for="colorFecha">Color</label>
+                        <input type="color" id="colorFecha" value="#000">
+                    </div>
+                </div>
+                <div class="sub">
+                    <div class="element inputLarge">
                         <label for="hora">Hora del evento</label>
                         <input type="time" id="hora">
                     </div>
 
+                    <div class="element">
+                        <label for="horaSize">Tamaño</label>
+                        <input type="range" name="horaSize" id="horaSize" min="0" max="100" value="20">
+                    </div>
+
+                    <div class="element">
+                        <label for="horaHeight">Altura</label>
+                        <input type="range" name="horaHeight" id="horaHeight" min="0" max="700" value="580">
+                    </div>
+
+                    <div class="element">
+                        <label for="horaFont">Tipografia</label>
+                        <select id="horaFont">
+                            <option value="Allura">Allura</option>
+                            <option value="Comic Relief">Comic Relief</option>
+                            <option value="Delius Swash Caps">Delius Swash Caps</option>
+                            <option value="Kapakana">Kapakana</option>
+                            <option value="Lora">Lora</option>
+                            <option value="Meow Script">Meow Script</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Pacifico">Pacifico</option>
+                            <option value="Pinyon Script">Pinyon Script</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Roboto Mono">Roboto Mono</option>
+                            <option value="Send Flowers">Send Flowers</option>
+                            <option value="Twinkle Star">Twinkle Star</option>
+                        </select>
+                    </div>
+
+                    <div class="element">
+                        <label for="colorHora">Color</label>
+                        <input type="color" id="colorHora" value="#000">
+                    </div>
+                </div>
+                <div class="sub">
                     <div class="element inputLarge">
                         <label for="ubicacion">Ubicación</label>
                         <input type="text" id="ubicacion" placeholder="Ej: Salón Fiesta, CDMX">
                     </div>
 
                     <div class="element">
-                        <label for="dataSize">Tamaño</label>
-                        <input type="range" name="dataSize" id="dataSize">
+                        <label for="ubicacionSize">Tamaño</label>
+                        <input type="range" name="ubicacionSize" id="ubicacionSize" min="0" max="100" value="25">
                     </div>
 
                     <div class="element">
-                        <label for="dataHeight">Altura</label>
-                        <input type="range" name="dataHeight" id="dataHeight">
+                        <label for="ubicacionHeight">Altura</label>
+                        <input type="range" name="ubicacionHeight" id="ubicacionHeight" min="0" max="700" value="600">
                     </div>
 
                     <div class="element">
-                        <label for="dataFont">Tipografia</label>
-                        <select id="dataFont">
-                            <option value="fill">por defecto</option>
-                            <option value="contain">manteniendo proporción</option>
-                            <option value="cover">Escalar la imagen</option>
-                            <option value="scale-down">Automático</option>
+                        <label for="ubicacionFont">Tipografia</label>
+                        <select id="ubicacionFont">
+                            <option value="Allura">Allura</option>
+                            <option value="Comic Relief">Comic Relief</option>
+                            <option value="Delius Swash Caps">Delius Swash Caps</option>
+                            <option value="Kapakana">Kapakana</option>
+                            <option value="Lora">Lora</option>
+                            <option value="Meow Script">Meow Script</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Pacifico">Pacifico</option>
+                            <option value="Pinyon Script">Pinyon Script</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Roboto Mono">Roboto Mono</option>
+                            <option value="Send Flowers">Send Flowers</option>
+                            <option value="Twinkle Star">Twinkle Star</option>
                         </select>
                     </div>
- 
+
+                    <div class="element">
+                        <label for="colorUbicacion">Color</label>
+                        <input type="color" id="colorUbicacion" value="#000">
+                    </div>
                 </div>
             </div>
         </details>
@@ -236,9 +409,44 @@
             <summary>Sección 4: Mensaje</summary>
             <div class="control">
                 <div class="sub">
-                    <div class="element anchura">
+                    <div class="element">
                         <label for="mensaje">Mensaje personalizado</label>
                         <textarea id="mensaje" rows="3" placeholder="¡Te esperamos con mucha alegría!"></textarea>
+                    </div>
+                </div>
+                <div class="sub">
+                    <div class="element">
+                        <label for="mensajeSize">Tamaño</label>
+                        <input type="range" name="mensajeSize" id="mensajeSize" min="0" max="100" value="25">
+                    </div>
+
+                    <div class="element">
+                        <label for="mensajeHeight">Altura</label>
+                        <input type="range" name="mensajeHeight" id="mensajeHeight" min="0" max="700" value="680">
+                    </div>
+
+                    <div class="element">
+                        <label for="mensajeFont">Tipografia</label>
+                        <select id="mensajeFont">
+                            <option value="Allura">Allura</option>
+                            <option value="Comic Relief">Comic Relief</option>
+                            <option value="Delius Swash Caps">Delius Swash Caps</option>
+                            <option value="Kapakana">Kapakana</option>
+                            <option value="Lora">Lora</option>
+                            <option value="Meow Script">Meow Script</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Pacifico">Pacifico</option>
+                            <option value="Pinyon Script">Pinyon Script</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Roboto Mono">Roboto Mono</option>
+                            <option value="Send Flowers">Send Flowers</option>
+                            <option value="Twinkle Star">Twinkle Star</option>
+                        </select>
+                    </div>
+
+                    <div class="element">
+                        <label for="colorMensaje">Color</label>
+                        <input type="color" id="colorMensaje" value="#000">
                     </div>
                 </div>
             </div>
@@ -269,14 +477,20 @@
                     </div>
 
                     <div class="element">
-                        <label>
-                            <input type="checkbox" id="mostrarRSVP">
-                            Mostrar botón de confirmación (RSVP)
-                        </label>
+                        <label for="fofoto5to4">Foto 5 (URL)</label>
+                        <input type="text" id="foto5" placeholder="URL foto 5">
                     </div>
+                    <div class="element">
+                        <label for="foto6">Foto 6 (URL)</label>
+                        <input type="text" id="foto6" placeholder="URL foto 6">
+                    </div>
+
+
                 </div>
             </div>
         </details>
+
+        <button id="Exportar">Exportar</button>
 
 
     </div>
@@ -291,11 +505,13 @@
                 <div id="vistaMensaje" class="mensaje"></div>
                 <div id="vistaFotoCentral" class="foto-central"></div>
 
-                <div class="galeria">
+                <div class="galeria" id="galeria">
                     <div id="galeria1" class="foto-galeria"></div>
                     <div id="galeria2" class="foto-galeria"></div>
                     <div id="galeria3" class="foto-galeria"></div>
                     <div id="galeria4" class="foto-galeria"></div>
+                    <div id="galeria5" class="foto-galeria"></div>
+                    <div id="galeria6" class="foto-galeria"></div>
                 </div>
 
                 <div id="vistaFecha" class="fecha"></div>
