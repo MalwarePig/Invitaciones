@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 archivo: document.getElementById('fotoCentral').value,
                 estilo: document.getElementById('imgPrimEstilo').value,
                 tamano: document.getElementById('imgPrimSize').value,
+                altura: document.getElementById('imgPrimHeight').value,
                 bordes: document.getElementById('imgPrimborder').value,
                 transparencia: document.getElementById('imgPrimTransparencia').value,
                 desvanecido: document.getElementById('imgPrimGradient').value,
@@ -90,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const vistaFoto = document.getElementById("vistaFotoCentral");
         vistaFoto.style.backgroundImage = config.imagenPrincipal.archivo ? `url(${config.imagenPrincipal.archivo})` : "none";
         vistaFoto.style.backgroundSize = config.imagenPrincipal.estilo;
+        vistaFoto.style.height = config.imagenPrincipal.altura+"%";
         vistaFoto.style.filter = config.imagenPrincipal.escalaGrises ? "grayscale(1)" : "none";
         vistaFoto.style.borderRadius = config.imagenPrincipal.bordes + "%";
         vistaFoto.style.opacity = 1 - config.imagenPrincipal.transparencia / 100;

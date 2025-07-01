@@ -109,7 +109,7 @@ body {
 .foto-central {
   background-color: transparent;
   width: 80%;
-  height: 180px;
+  height: 100%;
   background-size: cover;
   background-position: center;
   border-radius: 12px;
@@ -124,6 +124,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   position: absolute;
+  padding: 0 15px;
 }
 
 .foto-galeria {

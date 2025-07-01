@@ -10,26 +10,10 @@
 
     <link
         href="https://fonts.googleapis.com/css2?family=Allura&family=Comic+Relief:wght@400;700&family=Delius+Swash+Caps&family=Kapakana:wght@300..400&family=Lora:ital,wght@0,400..700;1,400..700&family=Meow+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Pinyon+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Send+Flowers&family=Twinkle+Star&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"> 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <link rel="stylesheet" href="./style.css">
-    <script src="./Load.js"></script>
+    <link rel="stylesheet" href="./public/css/style.css">
+    <script src="./public/js/Load.js"></script>
 </head>
 
 <body>
@@ -96,6 +80,7 @@
                         <select id="fotoCentral">
                             <option value="">(Sin imagen)</option>
                             <option value="./public/img/confeti.jpg">confeti</option>
+                            <option value="./public/img/fiesta.jpg">fiesta</option>
                             <option value="./public/img/niña.jpg">niña</option>
                             <option value="./public/img/niño.jpg">niño</option>
                             <option value="https://picsum.photos/id/1025/600/400">Perro</option>
@@ -115,6 +100,11 @@
                     <div class="element">
                         <label for="imgPrimSize">Tamaño</label>
                         <input type="range" name="imgPrimSize" id="imgPrimSize" min="0" max="100" value="100">
+                    </div>
+
+                    <div class="element">
+                        <label for="imgPrimHeight">Altura</label>
+                        <input type="range" name="imgPrimHeight" id="imgPrimHeight" min="0" max="100" value="50">
                     </div>
 
                     <div class="element">
